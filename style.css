@@ -1,3 +1,11 @@
+:root {
+    --space-indigo: #22223bff;
+    --dusty-grape: #4a4e69ff;
+    --lilac-ash: #9a8c98ff;
+    --almond-silk: #c9ada7ff;
+    --parchment: #f2e9e4ff;
+}
+
 .main-head {
   grid-area: header;
 }
@@ -52,4 +60,47 @@
   nav ul {
     flex-direction: column;
   }
+}
+
+
+body {
+    margin: 0 auto;
+    max-width: 1000px;
+    background-color: var(--space-indigo);
+}
+
+h1, h2, h3 {
+    margin: 0;
+    text-align: center;
+}
+
+h1 {
+    font-weight: bold;
+    padding: 0.75em;
+}
+
+h2 {
+    border-radius: 7px;
+    display:inline-block;
+    margin: 2px 0;
+    padding: 0.75em;
+}
+
+header, main, section, nav section, aside section {
+    background: #fff;
+    border-radius: 7px;
+    padding: 0.5em;
+}
+
+main, nav, aside {
+    align-self:start;
+}
+
+
+
+.banner {
+    object-fit: contain;
+    max-width: 100%;
+    height:auto;
+    display: block;
 }
