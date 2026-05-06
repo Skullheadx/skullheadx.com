@@ -65,7 +65,7 @@
 
 body {
     margin: 0 auto;
-    max-width: 1000px;
+    max-width: 1200px;
     background-color: var(--space-indigo);
 }
 
@@ -80,13 +80,33 @@ h1 {
 }
 
 h2 {
+    background: var(--parchment);
     border-radius: 7px;
     display:inline-block;
     margin: 2px 0;
     padding: 0.75em;
+    text-align: center;
 }
 
-header, main, section, nav section, aside section {
+a {
+    color: var(--dusty-grape);
+    font-weight: bold;
+    text-decoration: 2px dotted underline var(--space-indigo);
+}
+
+nav ul, aside ul{
+    padding: 0;
+    gap: 0.5rem;
+    margin: 0 0;
+}
+
+
+nav ul li, aside ul li{
+  list-style: none;
+  margin: 2px 0;
+}
+
+main, section, nav section, aside section {
     background: #fff;
     border-radius: 7px;
     padding: 0.5em;
@@ -103,4 +123,41 @@ main, nav, aside {
     max-width: 100%;
     height:auto;
     display: block;
+    border-radius: 7px;
+}
+
+nav section, aside section, main article {
+    margin-bottom: 5px; 
+}
+
+nav section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+
+aside section {
+    text-align: center;
+    ul li p {
+        margin: 0 0 0.5rem 0;
+    }
+}
+aside section h2 {display: block;}
+aside section ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    li img {
+        border-radius: 7px;
+    }
+
+}
+
+
+main article h2 {display:block;}
+
+
+footer {
+    text-align: center;
 }
