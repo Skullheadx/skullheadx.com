@@ -1,3 +1,4 @@
+/* colours */
 :root {
     --space-indigo: #22223bff;
     --dusty-grape: #4a4e69ff;
@@ -6,6 +7,36 @@
     --parchment: #f2e9e4ff;
 }
 
+/* headings */
+h1, h2, h3 {
+    margin: 0;
+    text-align: center;
+}
+
+h1 {
+    font-weight: bold;
+    padding: 0.75em;
+}
+
+h2 {
+    background: var(--parchment);
+    border-radius: 7px;
+    display:inline-block;
+    margin: 2px 0;
+    padding: 0.75em;
+    text-align: center;
+}
+
+
+/* links */
+a {
+    color: var(--dusty-grape);
+    font-weight: bold;
+    text-decoration: 2px dotted underline var(--space-indigo);
+}
+
+
+/* grid stuff */
 .main-head {
   grid-area: header;
 }
@@ -62,49 +93,22 @@
   }
 }
 
+/* header */ 
+.banner {
+    object-fit: contain;
+    max-width: 100%;
+    height:auto;
+    display: block;
+    border-radius: 7px;
+}
 
+/* body */
 body {
     margin: 0 auto;
     max-width: 1200px;
     background-color: var(--space-indigo);
 }
 
-h1, h2, h3 {
-    margin: 0;
-    text-align: center;
-}
-
-h1 {
-    font-weight: bold;
-    padding: 0.75em;
-}
-
-h2 {
-    background: var(--parchment);
-    border-radius: 7px;
-    display:inline-block;
-    margin: 2px 0;
-    padding: 0.75em;
-    text-align: center;
-}
-
-a {
-    color: var(--dusty-grape);
-    font-weight: bold;
-    text-decoration: 2px dotted underline var(--space-indigo);
-}
-
-nav ul, aside ul{
-    padding: 0;
-    gap: 0.5rem;
-    margin: 0 0;
-}
-
-
-nav ul li, aside ul li{
-  list-style: none;
-  margin: 2px 0;
-}
 
 main, section, nav section, aside section {
     background: #fff;
@@ -116,18 +120,22 @@ main, nav, aside {
     align-self:start;
 }
 
-
-
-.banner {
-    object-fit: contain;
-    max-width: 100%;
-    height:auto;
-    display: block;
-    border-radius: 7px;
-}
-
 nav section, aside section, main article {
     margin-bottom: 5px; 
+    h2 {
+        display: block;
+    }
+}
+
+/* nav */
+nav ul, aside ul{
+    padding: 0;
+    gap: 0.5rem;
+    margin: 0 0;
+    li{
+      list-style: none;
+      margin: 2px 0;
+    }
 }
 
 nav section {
@@ -136,28 +144,26 @@ nav section {
     flex-wrap: nowrap;
 }
 
-
+/* aside */
 aside section {
     text-align: center;
-    ul li p {
-        margin: 0 0 0.5rem 0;
+    ul {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        li img {
+            border-radius: 7px;
+        }
+        li p {
+            margin: 0 0 0.5rem 0;
+        }
     }
 }
-aside section h2 {display: block;}
-aside section ul {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    li img {
-        border-radius: 7px;
-    }
 
-}
-
-
-main article h2 {display:block;}
-
-
+/* footer */
 footer {
     text-align: center;
+    a {
+        color: var(--almond-silk);
+    }
 }
