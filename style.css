@@ -281,3 +281,31 @@ details[open] summary {
   margin-bottom: 0.5em;
 }
 
+/* Links listing */
+.listing {
+  list-style: none;
+  margin: 2em;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: 1fr;
+  align-items: center;
+}
+
+.listing > li {
+  display: flex;
+  flex-direction: column;
+  height:100%;
+}
+
+.listing .body {
+  padding: 10px;
+  ul {
+    margin-left: 1em;
+  }
+  li {
+      list-style: disc;
+  }
+}
+
+
