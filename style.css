@@ -170,19 +170,22 @@ main {
     padding: 1em;
 }
 
-main article {
+main article, main footer {
     clear: both;
     display: block;
     width: 100%;
 }
 
-nav section, aside section, main article {
+nav section, aside section, main article, main footer {
     margin-bottom: 5px; 
     h2 {
         display: block;
     }
 }
 
+main footer p {
+    margin: 0 0;
+}
 
 /* nav */
 nav ul, aside ul{
