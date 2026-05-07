@@ -42,7 +42,7 @@ a {
 h2 a {
     color: inherit;
     font-weight: inherit;
-    text-decoration: inherit;
+    /*text-decoration: 2px dotted underline var(--almond-silk);*/
 }
 
 /* images */
