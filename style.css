@@ -39,6 +39,12 @@ a {
     text-decoration: 2px dotted underline var(--space-indigo);
 }
 
+h2 a {
+    color: inherit;
+    font-weight: inherit;
+    text-decoration: inherit;
+}
+
 /* images */
 img {
     border-radius: 7px;
