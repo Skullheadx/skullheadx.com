@@ -89,6 +89,22 @@ li {
     "footer";
 }
 
+@media (width >= 300px) {
+  .main-wrapper .content-wrapper {
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas:
+      "header"
+      "nav"
+      "aside"
+      "content"
+      "footer";
+  }
+  nav ul {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
 /* grid layout for header, nav, content, aside and footer */
 @media (width >= 500px) {
   .main-wrapper {
@@ -99,28 +115,6 @@ li {
       "aside content"
       "footer      footer";
   }
-  nav ul {
-    display: flex;
-    justify-content: space-between;
-  }
-}
-
-@media (width >= 700px) {
-  .main-wrapper {
-    grid-template-columns: 1fr 4fr 1fr;
-    grid-template-areas:
-      "header header  header"
-      "nav    content aside"
-      "nav    content aside"
-      "footer footer  footer";
-  }
-  nav ul {
-    flex-direction: column;
-  }
-}
-
-/* grid layout for header, nav, content, and footer */
-@media (width >= 500px) {
   .content-wrapper {
     grid-template-columns: 1fr 3fr;
     grid-template-areas:
@@ -136,6 +130,14 @@ li {
 }
 
 @media (width >= 700px) {
+  .main-wrapper {
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas:
+      "header header  header"
+      "nav    content aside"
+      "nav    content aside"
+      "footer footer  footer";
+  }
   .content-wrapper {
     grid-template-columns: 1fr 4fr 1fr;
     grid-template-areas:
@@ -148,6 +150,7 @@ li {
     flex-direction: column;
   }
 }
+
 
 /* header */ 
 .banner {
@@ -252,20 +255,37 @@ blockquote + p {
 }
 
 /* figure */
+figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+}
+
+
 .push-left {
-    display: block;
-    float:left;
-    clear: both;
     padding: 10px;
-    max-width:400px;
+    margin: 1em auto 1em auto;
+    max-width: 100%;
+}
+
+@media (min-width: 700px){
+    .push-left {
+        float:left;
+        clear: both;
+        padding: 10px;
+        max-width:400px;
+    }
 }
 
 
 /* center elements side by side centered */
-.center-vertical {
-    display:flex;
-    align-items: center;
-    gap: 15px;
+@media (min-width: 450px){
+    .center-vertical {
+        display:flex;
+        align-items: center;
+        gap: 15px;
+    }
 }
 
 
@@ -297,7 +317,7 @@ details[open] summary {
   margin: 2em;
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(300px,100%), 1fr));
   grid-auto-rows: 1fr;
   align-items: center;
 }
