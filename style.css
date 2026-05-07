@@ -35,6 +35,21 @@ a {
     text-decoration: 2px dotted underline var(--space-indigo);
 }
 
+/* images */
+img {
+    border-radius: 7px;
+}
+
+
+/* list items */
+ul {
+    padding: 0;
+}
+
+li {
+    list-style: none;
+    margin: 2px 0;
+}
 
 /* grid stuff */
 .main-head {
@@ -53,7 +68,7 @@ a {
   grid-area: footer;
 }
 
-.wrapper {
+.main-wrapper, .content-wrapper {
   display: grid;
   gap: 20px;
   grid-template-areas:
@@ -64,8 +79,9 @@ a {
     "footer";
 }
 
+/* grid layout for header, nav, content, aside and footer */
 @media (width >= 500px) {
-  .wrapper {
+  .main-wrapper {
     grid-template-columns: 1fr 3fr;
     grid-template-areas:
       "header  header"
@@ -80,12 +96,42 @@ a {
 }
 
 @media (width >= 700px) {
-  .wrapper {
+  .main-wrapper {
     grid-template-columns: 1fr 4fr 1fr;
     grid-template-areas:
       "header header  header"
       "nav    content aside"
       "nav    content aside"
+      "footer footer  footer";
+  }
+  nav ul {
+    flex-direction: column;
+  }
+}
+
+/* grid layout for header, nav, content, and footer */
+@media (width >= 500px) {
+  .content-wrapper {
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas:
+      "header  header"
+      "nav     nav"
+      "content content"
+      "footer      footer";
+  }
+  nav ul {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media (width >= 700px) {
+  .content-wrapper {
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas:
+      "header header  header"
+      "nav    content content"
+      "nav    content content"
       "footer footer  footer";
   }
   nav ul {
@@ -110,7 +156,7 @@ body {
 }
 
 
-main, section, nav section, aside section {
+ main, section, nav section, aside section {
     background: #fff;
     border-radius: 7px;
     padding: 0.5em;
@@ -120,6 +166,16 @@ main, nav, aside {
     align-self:start;
 }
 
+main {
+    padding: 1em;
+}
+
+main article {
+    clear: both;
+    display: block;
+    width: 100%;
+}
+
 nav section, aside section, main article {
     margin-bottom: 5px; 
     h2 {
@@ -127,15 +183,12 @@ nav section, aside section, main article {
     }
 }
 
+
 /* nav */
 nav ul, aside ul{
     padding: 0;
     gap: 0.5rem;
     margin: 0 0;
-    li{
-      list-style: none;
-      margin: 2px 0;
-    }
 }
 
 nav section {
@@ -151,12 +204,6 @@ aside section {
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
-        li img {
-            border-radius: 7px;
-        }
-        li p {
-            margin: 0 0 0.5rem 0;
-        }
     }
 }
 
@@ -167,3 +214,67 @@ footer {
         color: var(--almond-silk);
     }
 }
+
+
+
+/* quote */
+div:has(> blockquote) {
+  background-color: #ededed;
+  margin: 10px auto;
+  padding: 15px;
+  border-radius: 5px;
+  max-width: 500px;
+}
+
+blockquote p::before {
+  content: "\201C";
+}
+
+blockquote p::after {
+  content: "\201D";
+}
+
+blockquote + p {
+  text-align: right;
+}
+
+/* figure */
+.push-left {
+    display: block;
+    float:left;
+    clear: both;
+    padding: 10px;
+    max-width:400px;
+}
+
+
+/* center elements side by side centered */
+.center-vertical {
+    display:flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+/* details and summary boxes */
+details {
+  border: 1px solid #aaaaaa;
+  border-radius: 4px;
+  padding: 0.5em 0.5em 0;
+}
+
+summary {
+  font-weight: bold;
+  margin: -0.5em -0.5em 0;
+  padding: 0.5em;
+}
+
+details[open] {
+  padding: 0.5em;
+}
+
+details[open] summary {
+  border-bottom: 1px solid #aaaaaa;
+  margin-bottom: 0.5em;
+}
+
