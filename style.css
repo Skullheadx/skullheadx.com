@@ -51,6 +51,16 @@ li {
     margin: 2px 0;
 }
 
+/* disc for lists */
+.list-disc {
+    margin-left: 2em;
+}
+
+.list-disc > li {
+    list-style: disc;
+    margin: 2px 0;
+}
+
 /* grid stuff */
 .main-head {
   grid-area: header;
