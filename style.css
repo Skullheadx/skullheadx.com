@@ -16,6 +16,7 @@ h1, h2, h3 {
 h1 {
     font-weight: bold;
     padding: 0.75em;
+    color: var(--parchment);
 }
 
 h2 {
@@ -43,6 +44,12 @@ h2 a {
     color: inherit;
     font-weight: inherit;
     /*text-decoration: 2px dotted underline var(--almond-silk);*/
+}
+
+h1 a {
+    color: inherit;
+    font-weight: inherit;
+    text-decoration: 2px dotted underline var(--almond-silk);
 }
 
 /* images */
@@ -94,7 +101,7 @@ li {
   grid-area: footer;
 }
 
-.main-wrapper, .content-wrapper {
+.main-wrapper, .content-wrapper, .blog-wrapper {
   display: grid;
   gap: 20px;
   grid-template-areas:
@@ -123,12 +130,21 @@ li {
       "nav-unpinned"
       "footer";
   }
+  .blog-wrapper {
+    grid-template-areas:
+      "header"
+      "nav"
+      "content"
+      "footer";
+  }
   nav {
       display: contents;
   }
   nav ul {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 10px;
   }
   h2 {
       padding: 0.25em;
@@ -155,12 +171,19 @@ li {
       "nav-unpinned nav-unpinned"
       "footer      footer";
   }
+  .blog-wrapper {
+    grid-template-areas:
+      "header"
+      "nav"
+      "content"
+      "footer";
+  }
   nav {
       display: contents;
   }
   nav ul {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
 }
 
@@ -174,6 +197,14 @@ li {
       "footer footer  footer";
   }
   .content-wrapper {
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas:
+      "header header  header"
+      "nav    content content"
+      "nav    content content"
+      "footer footer  footer";
+  }
+  .blog-wrapper {
     grid-template-columns: 1fr 4fr 1fr;
     grid-template-areas:
       "header header  header"
@@ -196,6 +227,12 @@ li {
     border-radius: 7px;
 }
 
+html > header h1 {
+    a {
+        
+    }
+}
+
 /* body */
 body {
     margin: 0 auto;
@@ -204,8 +241,14 @@ body {
 }
 
 body.pattern {
-background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100%25' width='100%25'%3E%3Cdefs%3E%3Cpattern id='doodad' width='46' height='46' viewBox='0 0 40 40' patternUnits='userSpaceOnUse' patternTransform=''%3E%3Crect width='100%25' height='100%25' fill='rgba(74, 85, 104,1)'/%3E%3Cpath d='M0 40h-10v-60h60L40 0L39 1h-38v38z' fill='rgba(113, 128, 150,1)'/%3E%3Cpath d='M40 0v10h60v60L0 40L1 39h38v-38z' fill='rgba(45, 55, 72,1)'/%3E%3Cpath d='M40 0v10h60v60L0 40L0 40h40v-40z' fill='rgba(113, 128, 150,1)'/%3E%3Cpath d='M0 40h-10v-60h60L40 0L40 0h-40v40z' fill='rgba(45, 55, 72,1)'/%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23doodad)' height='200%25' width='200%25'/%3E%3C/svg%3E ")}
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100%25' width='100%25'%3E%3Cdefs%3E%3Cpattern id='doodad' width='46' height='46' viewBox='0 0 40 40' patternUnits='userSpaceOnUse' patternTransform=''%3E%3Crect width='100%25' height='100%25' fill='rgba(74, 85, 104,1)'/%3E%3Cpath d='M0 40h-10v-60h60L40 0L39 1h-38v38z' fill='rgba(113, 128, 150,1)'/%3E%3Cpath d='M40 0v10h60v60L0 40L1 39h38v-38z' fill='rgba(45, 55, 72,1)'/%3E%3Cpath d='M40 0v10h60v60L0 40L0 40h40v-40z' fill='rgba(113, 128, 150,1)'/%3E%3Cpath d='M0 40h-10v-60h60L40 0L40 0h-40v40z' fill='rgba(45, 55, 72,1)'/%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23doodad)' height='200%25' width='200%25'/%3E%3C/svg%3E ")
+}
 
+body.blog {
+    font-size: 16px;
+    margin: 55px auto;
+    max-width: 1000px;
+}
 
  main, section, nav section, aside section {
     background: #fff;
@@ -267,6 +310,9 @@ footer {
     a {
         color: var(--almond-silk);
     }
+    p {
+        color: var(--parchment);
+    }
 }
 
 
@@ -298,8 +344,22 @@ figure {
     flex-direction: column;
     justify-content: center;
     align-items:center;
+    margin: 1em 0;
+    width: 100%;
+    max-width: 100%;
 }
 
+figure audio {
+    margin: 0.5em;
+    width: 100%;
+    max-width:300px;
+}
+
+figcaption {
+    padding: 10px;
+    text-align: center;
+    word-wrap: break-word;
+}
 
 .push-left {
     padding: 10px;
@@ -375,5 +435,40 @@ details[open] summary {
       list-style: disc;
   }
 }
+
+
+
+
+/* hgroup center */
+hgroup {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    p {
+        margin: 0.5em;
+    }
+
+}
+
+
+/* horizontal rule */
+hr {
+  border: none;
+  border-top: 3px double #333333;
+  color: #333333;
+  overflow: visible;
+  text-align: center;
+  height: 5px;
+  max-width: 66%;
+}
+
+hr::after {
+  background: white;
+  content: "§";
+  padding: 0 4px;
+  position: relative;
+  top: -13px;
+}
+
 
 
