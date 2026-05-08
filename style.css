@@ -16,7 +16,6 @@ h1, h2, h3 {
 h1 {
     font-weight: bold;
     padding: 0.75em;
-    color: var(--parchment);
 }
 
 h2 {
@@ -47,7 +46,7 @@ h2 a {
 }
 
 h1 a {
-    color: inherit;
+    color: var(--parchment);
     font-weight: inherit;
     text-decoration: 2px dotted underline var(--almond-silk);
 }
@@ -227,7 +226,9 @@ li {
     border-radius: 7px;
 }
 
-html > header h1 {
+.main-head h1 {
+    text-align:left;
+    padding:0;
     a {
         
     }
@@ -310,6 +311,9 @@ footer {
     a {
         color: var(--almond-silk);
     }
+}
+
+.main-footer {
     p {
         color: var(--parchment);
     }
@@ -441,8 +445,7 @@ details[open] summary {
 
 /* hgroup center */
 hgroup {
-    display:flex;
-    flex-direction:column;
+    text-align:center;
     align-items: center;
     p {
         margin: 0.5em;
